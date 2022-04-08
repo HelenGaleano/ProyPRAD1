@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyPRAD.Views.PageListaContactos"
+             NavigationPage.HasNavigationBar="True"
+             Title="Otros">
+    <ContentPage.Content >
+
+        <ScrollView>
+            <StackLayout  BackgroundColor="LightBlue" >
+
+                <Frame BackgroundColor="#2196F3" Padding="15" CornerRadius="0">
+                    <SearchBar Placeholder="Buscar..." Keyboard="Chat" 
+                               TextChanged="SearchBar_TextChanged_1" 
+                               CancelButtonColor="Black"
+                               MaxLength="20"
+                               FontSize="Medium"
+                               PlaceholderColor="White"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Start"
+                               HeightRequest="20"
+                               FontAttributes="Bold"/>
+
+                </Frame>
+                
+                    <StackLayout BackgroundColor="PaleTurquoise" Margin="20,0,20,15">
+
+                    
+                        <StackLayout>
+                            <CollectionView x:Name="ListaContactos"
+                                Margin="0,5,5,5"
+                                SelectionMode="Single"
+                                SelectionChanged="ListaContactos_SelectionChanged">
+                             <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"
+                                           ItemSpacing="1"/>
+
+                            </CollectionView.ItemsLayout>
+
+                            <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="{Binding Id}"/>
+                                    <Label Text="{Binding nombre}"/>
+                                    <Label Text="{Binding apellido}"/>
+                                    <Label Text="{Binding telefono}"
+                                       HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                         </CollectionView>
+                          </StackLayout>
+                    
+                </StackLayout>
+               
+
+                <StackLayout BackgroundColor="Aqua" Margin="10,5,0,0" >
+
+                    <Grid ColumnDefinitions="*,*"   >
+                        <Button x:Name="btnCompartir_Contacto"
+                    Text="Compartir Contacto"
+                    TextColor="White"
+                    BackgroundColor="Green"
+                    Margin="5,5,8,0"  
+                    Padding="1"
+                    BorderColor="Orange"
+                    BorderWidth="4"
+                    Clicked="btnCompartir_Contacto_Clicked"/>
+                        <Button x:Name="btnVerImagen"
+                    Text="Ver Imagen"
+                    TextColor="White"
+                    BackgroundColor="Green"
+                    BorderColor="Orange"
+                    BorderWidth="4"
+                    Margin="5,3,4,1"
+                    Grid.Column="1"
+                    Clicked="btnVerImagen_Clicked"/>
+
+
+                        <Button x:Name="btnEliminarContacto"
+                    Text="Eliminar Contacto"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    TextColor="White"
+                    BackgroundColor="Green"
+                    BorderWidth="4"
+                    BorderColor="Orange"
+                    Margin="5,3,1,3" 
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Clicked="btnEliminarContacto_Clicked"/>
+                        <Button x:Name="btnActualizarContacto"
+                     Text="Actualizar Contacto"
+                     HorizontalOptions="End" 
+                     TextColor="White"
+                     BackgroundColor="Green" 
+                     Margin="10,5,3,2"  
+                     WidthRequest="170" HeightRequest="30"
+                     BorderWidth="3"
+                     BorderColor="Orange"
+                     Padding="1"
+                     Grid.Row="1"
+                     Grid.ColumnSpan="2"
+                     Clicked="btnActualizarContacto_Clicked"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+
+            </ScrollView>
+    </ContentPage.Content>
+  
+</ContentPage>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyPRAD.Views.PageListaSitios"
+             Title="Otros">
+    <ContentPage.Content>
+        <StackLayout  BackgroundColor="LightBlue">
+            <Frame BackgroundColor="#2196F3" Padding="15" CornerRadius="0">
+                <SearchBar Placeholder="Buscar..." Keyboard="Chat" 
+       
+                               CancelButtonColor="Black"
+                               MaxLength="20"
+                               FontSize="Medium"
+                               PlaceholderColor="White"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Start"
+                               HeightRequest="20"
+                               FontAttributes="Bold"/>
+
+            </Frame>
+            <!--- Botones  de sitios-->
+            <StackLayout BackgroundColor="PaleTurquoise" Margin="20,0,20,15">
+
+                <ScrollView>
+                    <StackLayout>
+                        <CollectionView x:Name="ListaSitios"
+                                    Margin="20"
+                                    SelectionMode="Single"
+                                    >
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical"
+                                                   ItemSpacing="10" />
+                            </CollectionView.ItemsLayout>
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Label Text="{Binding sitio}"/>
+                                        <Label Text="{Binding pais}"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                  
+                </ScrollView>
+                
+            </StackLayout>
+            <StackLayout Margin="10,0,10,50">
+                <Grid ColumnDefinitions="*,*"  >
+                    <Button 
+                        Text="Compartir Ubicacion "
+                        x:Name="Compartir"
+                        BorderColor="Orange"
+                        BorderWidth="4"
+                        Margin="10,0,1,1"
+                        Padding="1" 
+                        FontSize="13"
+                         HorizontalOptions="Start"/>
+                    <Button Grid.Column="1"
+                        BorderColor="Orange"
+                        BorderWidth="4"
+                        Text="ver Imagen"
+                        Margin="1,0,10,0"
+                        Padding="5"
+                          />
+                   
+                    <Button  Text="Actualizar Sitio"
+                         Grid.Row="1"
+                         Grid.ColumnSpan="2"
+                         Margin="10,0,10,10"
+                         BorderWidth="1" 
+                             Padding="1"
+                         HorizontalOptions="Center"
+                         BorderColor="Orange"
+                         WidthRequest="150" 
+                          />
+                    
+
+                </Grid>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
